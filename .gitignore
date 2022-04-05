@@ -1,0 +1,12 @@
+# ignore below folders and files
+.idea/
+.ipynb_checkpoints/
+.pytest_cache/
+__pycache__/
+
+.DS_Store
+
+
+
+
+
