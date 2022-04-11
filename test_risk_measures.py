@@ -7,6 +7,9 @@ def test_risk_measure_np_1d():
     dat = 100*[hi] + 100*[lo] + 9800*[mid]
     VaR, ES = risk_measure_np(dat, ci=0.99)
     assert VaR.flatten() == approx(np.array([lo, hi]))
+    # assert ES.flatten() == approx(np.array([lo, hi]))
+    print(VaR)
+    print(VaR.flatten())
 
 def test_risk_measure_np_2d():
     arr = np.array(10*[range(10_000)])
