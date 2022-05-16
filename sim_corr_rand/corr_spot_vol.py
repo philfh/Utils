@@ -19,9 +19,9 @@ class CorrSpotVol:
 
     def gen_corr_spot_vol(self, rho=-0.8):
         self.corr_rv.gen_corr_rand(rho)
-        scalar = np.array([self.iv, self.vov]) / np.sqrt(252) # Scale unit-variance correlated RV with IV and VoV
+        scalar = np.array([self.iv, self.vov]) / np.sqrt(252)  # Scale unit-variance correlated RV with IV and VoV
         self.corr_rv.corr_rands *= np.tile(scalar, (NSCEN, 1))
-        self.spot_vol_return = self.corr_rv.corr_rands.copy()
+        self.spot_vol_return = np.exp(self.corr_rv.corr_rands) - 1  # convert log-return to proportional return
 
     def corr_spot_vol_stats(self):
         print('Statistical Summary of Simulated Spot and Vol Returns \n')
