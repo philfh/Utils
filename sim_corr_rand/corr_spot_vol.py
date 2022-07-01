@@ -48,7 +48,7 @@ class CorrSpotVol:
         print(self.spot_vol_return.describe(), '\n', self.spot_vol_return.corr())
 
     def plot_spot_vol_scatter(self, ax=None):
-        if not hasattr(self, 'spot_vol_return'):
+        if self.spot_vol_return.empty:
             print('correlated spot/vol return not calculated yet')
             return
         if ax is None:
@@ -60,7 +60,7 @@ def main():
     fig, axes = plt.subplots(2, 2, figsize=(12, 8), constrained_layout=True)
     rhos = [-0.2, -0.4, -0.6, -0.8]
     iv, vov = 0.2, 2
-    rho, eta, lam = -0.9, 4, 0.15
+    eta, lam = 4, 0.15
     csv = CorrSpotVol(iv=iv, vov=vov, eta=eta, lam=lam)
     for rho, ax in zip(rhos, axes.flatten()):
         csv.calc_corr_spot_vol(rho=rho)
