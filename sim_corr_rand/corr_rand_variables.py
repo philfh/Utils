@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from abc import ABC, abstractmethod
 
-from skewstudent import SkewStudent
+from sim_corr_rand.skewstudent import SkewStudent
 NSCEN = 10000
 
 class CorrRandVariables2D(ABC):

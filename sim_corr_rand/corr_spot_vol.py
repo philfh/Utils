@@ -3,7 +3,7 @@ import pandas as pd
 
 import matplotlib.pyplot as plt
 import seaborn as sns
-from corr_rand_variables import CorrBiNormT2D, CorrNormSkewT2D
+from sim_corr_rand.corr_rand_variables import CorrBiNormT2D, CorrNormSkewT2D
 
 NSCEN = 10000
 
